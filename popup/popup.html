@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WA Web Notification Changer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <img src="../assets/icons/notification.png" alt="Icon" class="brand-icon" draggable="false">
+        <div class="brand-text">
+          <h1 class="brand-title">Notification Sound</h1>
+          <span class="brand-subtitle">WhatsApp Web Audio Replacer</span>
+        </div>
+      </div>
+      <div class="header-toggle">
+        <label class="switch" for="toggle-enabled" title="Enable/Disable Audio Replacement">
+          <input type="checkbox" id="toggle-enabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Section: Sound Selection -->
+      <div class="card">
+        <label class="card-label" for="preset-select">Audio Sound</label>
+        <div class="select-wrapper">
+          <select id="preset-select" class="form-select">
+            <option value="windows_notify_email" selected>Windows Notify Email (Default)</option>
+            <option value="custom">Custom Audio File</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section: Custom Audio File Upload -->
+      <div class="card" id="custom-source-card">
+        <div class="card-header-row">
+          <label class="card-label">Custom Audio File</label>
+          <span class="badge" id="source-format-badge">WAV</span>
+        </div>
+
+        <div class="upload-zone" id="drop-zone">
+          <input type="file" id="file-input" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac" class="file-input-hidden">
+          <button type="button" id="btn-browse" class="btn btn-secondary">Choose Audio File</button>
+          <span class="upload-hint" id="upload-hint-text">Supported formats: MP3, WAV, OGG, M4A</span>
+        </div>
+
+        <div class="file-status-row">
+          <span class="file-status-label" id="file-name-display">Windows Notify Email</span>
+          <span class="payload-info" id="payload-info">Size: 0 KB</span>
+        </div>
+      </div>
+
+      <!-- Section: Volume & Playback Controls -->
+      <div class="card">
+        <div class="card-header-row">
+          <label class="card-label" for="volume-slider">Playback Volume</label>
+          <span class="volume-value" id="volume-readout">85%</span>
+        </div>
+        <div class="slider-container">
+          <input type="range" id="volume-slider" min="0" max="100" value="85" class="form-range">
+        </div>
+
+        <div class="preview-actions">
+          <button type="button" id="btn-preview" class="btn btn-primary">
+            <span id="preview-btn-text">Play Preview</span>
+          </button>
+          <button type="button" id="btn-reset" class="btn btn-outline">Reset Default</button>
+        </div>
+      </div>
+
+      <!-- Section: Interception Configuration -->
+      <div class="card">
+        <label class="card-label" for="filter-keyword">Interception Filter Keyword</label>
+        <input type="text" id="filter-keyword" class="form-input" value="static.whatsapp.net" placeholder="e.g. static.whatsapp.net">
+        <span class="form-hint">Intercepts audio URLs containing this keyword</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/sounds/presets.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
