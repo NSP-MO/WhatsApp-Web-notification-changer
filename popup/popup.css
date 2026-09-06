@@ -366,3 +366,32 @@ input:checked + .slider::before {
   gap: 8px;
   margin-top: 4px;
 }
+
+/* Footer & Support Link */
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-header);
+  min-height: 36px;
+  box-sizing: border-box;
+}
+
+.footer-link {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+

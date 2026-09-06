@@ -346,6 +346,19 @@
     saveConfig();
   });
 
+  // Support link external navigation
+  const kofiLink = document.getElementById('kofi-link');
+  if (kofiLink) {
+    kofiLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (typeof chrome !== 'undefined' && chrome.tabs && chrome.tabs.create) {
+        chrome.tabs.create({ url: this.href });
+      } else {
+        window.open(this.href, '_blank', 'noopener,noreferrer');
+      }
+    });
+  }
+
   // Initial load
   loadPreferences();
 
