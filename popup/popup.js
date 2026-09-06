@@ -19,7 +19,6 @@
   const btnPreview = document.getElementById('btn-preview');
   const previewBtnText = document.getElementById('preview-btn-text');
   const btnReset = document.getElementById('btn-reset');
-  const filterKeywordInput = document.getElementById('filter-keyword');
 
   // Active state
   let currentAudio = null;
@@ -88,7 +87,7 @@
       audioBase64: effectiveAudio,
       customFileName: customFileName,
       volume: volumeFloat,
-      matchKeyword: filterKeywordInput.value.trim() || 'static.whatsapp.net',
+      matchKeyword: 'static.whatsapp.net',
       soundVersion: 'windows_notify_email_v2'
     };
 
@@ -122,9 +121,6 @@
       const volPercent = typeof res.volume === 'number' ? Math.round(res.volume * 100) : 85;
       volumeSlider.value = volPercent;
       volumeReadout.textContent = `${volPercent}%`;
-
-      // Filter keyword
-      filterKeywordInput.value = res.matchKeyword || 'static.whatsapp.net';
 
       // Custom file name
       customFileName = typeof res.customFileName === 'string' ? res.customFileName : '';
@@ -228,11 +224,6 @@
   });
 
   volumeSlider.addEventListener('change', function () {
-    saveConfig();
-  });
-
-  // Handle Filter keyword change
-  filterKeywordInput.addEventListener('change', function () {
     saveConfig();
   });
 
@@ -340,7 +331,6 @@
     customFileName = '';
     volumeSlider.value = 85;
     volumeReadout.textContent = '85%';
-    filterKeywordInput.value = 'static.whatsapp.net';
     toggleEnabled.checked = true;
     updatePayloadMetrics(currentBase64, 'Windows Notify Email (Default)');
     saveConfig();

@@ -57,7 +57,7 @@ WhatsApp Web runs client-side within the browser and plays notification sounds w
    - Built with a Dark Modern palette conforming to modern development standards.
    - Configured with Windows Notify Email as the default sound, with full user customization for custom audio files.
    - Supports importing custom audio files (MP3, WAV, OGG, M4A) with automatic internal Base64 encoding.
-   - Provides volume attenuation sliders, live audio preview, and keyword filtering.
+   - Provides volume attenuation sliders, live audio preview, and custom audio file uploads.
 
 ---
 
